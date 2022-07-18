@@ -41,17 +41,20 @@
 # end
 
 # 顧客 nが10以上なら、電話番号の桁数が増えますので注意。どうでもいいけど。
+# また、5件に1件くらいは退会済みがあってもいいかなと思って。
+# 全件消すときは、rails cでコンソールに入ってCustomer.delete_allでどうぞ。
 5.times do |n|
   Customer.create!(
-    last_name: "姓姓姓#{n+1}",
-    first_name: "名名名#{n+1}",
-    last_name_kana: "セイセイセイ#{n+1}",
-    first_name_kana: "メイメイメイ#{n+1}",
-    email: "sei#{n+1}@testdata.com",
+    last_name: "姓姓#{n}",
+    first_name: "名名#{n}",
+    last_name_kana: "セイセイセイ#{n}",
+    first_name_kana: "メイメイメイ#{n}",
+    email: "sei#{n}@testdata.com",
     password: "passw0rd",
     postal_code: "#{1500041 + n}",
-    address: "東京都渋谷区神南1丁目19-1#{n + 1} パークウェースクエア2 #{n + 4}階",
-    telephone_number: "036869470#{n + 1}",
-    is_active: true
+    address: "東京都渋谷区神南1丁目19-#{n} 
+      パークウェースクエア2 #{n + 1}階",
+    telephone_number: "036869470#{n}",
+    is_active: (n % 5 == 0) ? false : true
   )
 end
