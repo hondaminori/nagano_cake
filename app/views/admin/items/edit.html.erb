@@ -1,5 +1,6 @@
-<%= form_with model: @item, url: admin_items_path(@item) do |f| %>
-  <h4>画像</h4>
+<h2>商品編集</h2>
+<%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>
+  <h4>商品画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
   <h4>商品名</h4>
   <%= f.text_field :name %>
@@ -7,5 +8,6 @@
   <%= f.text_area :introduction %>
   <h4>税抜き価格</h4>
   <%= f.text_field :price %>
-  <%= f.submit '新規登録' %>
+  <%= f.submit '変更を保存' %>
 <% end %>
+
