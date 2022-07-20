@@ -5,4 +5,11 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :orders, dependent: :destroy
+
+  def order_customer_name
+    last_name + " " + first_name
+  end
+
+  def aaa
+  end
 end
