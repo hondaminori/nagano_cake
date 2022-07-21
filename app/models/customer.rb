@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
   
   has_many :orders, dependent: :destroy
 
-  def order_customer_name
+  def customer_full_name
     last_name + " " + first_name
   end
 
